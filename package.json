@@ -6,6 +6,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "node app.mjs"
+  },
   "devDependencies": {
     "eslint": "^8.24.0"
   }
