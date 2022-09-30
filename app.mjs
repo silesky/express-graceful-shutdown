@@ -4,11 +4,12 @@ const app = express();
 const server = app.listen(3000);
 app.get("/", (req, res) => res.send("Hello World!"));
 
-const onExit = () => {
-  setTimeout(async () => {
-    await analytics.closeAndFlush(); // flush all existing events
-    server.close(() => process.exit());
-  }, 0);
+const onExit = async () => {
+  server.close(() => processexit());
+  setTimeout(() => {
+    console.log("terminated after 1sec");
+    process.exit(1);
+  }, 1000);
 };
 
 process.on("SIGINT", onExit);
