@@ -3,7 +3,7 @@ const app = express();
 
 const server = app.listen(3000);
 app.get("/", async (req, res) => {
-  await new Promise((resolve) => setTimeout(resolve, 5000));
+  await new Promise((resolve) => setTimeout(resolve, 10000));
   res.send("Hello World!");
 });
 
@@ -11,7 +11,7 @@ const onExit = async () => {
   console.log("exiting...");
   server.close(() => process.exit());
   setTimeout(() => {
-    console.log("terminated after 1sec");
+    console.log("Force exiting!");
     process.exit(1);
   }, 1000);
 };
