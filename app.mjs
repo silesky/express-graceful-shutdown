@@ -9,7 +9,7 @@ app.get("/", async (req, res) => {
   timerId = setTimeout(() => {
     console.log("timer expired!");
   }, 1000000);
-  res.send("Hello World!");
+  res.send(`Hello World! with timer ${timerId}`);
 });
 
 const onExit = async () => {
