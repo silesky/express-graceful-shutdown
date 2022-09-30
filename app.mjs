@@ -26,14 +26,3 @@ const onExit = async () => {
 
 process.on("SIGINT", onExit);
 process.on("SIGTERM", onExit);
-
-/**
- * If an abort happens,
- * Error: socket hang up (happens either way)
- *
- * - Nobody is generally going to be awaiting our library to complete an HTTP request (this happens passively),
- * - But even if they were waiting, we don't resolve our promise until all the dispatches are complete.
- * - If we do force resolve and there are pending promises (like HTTP Requests),
- * - they wouldn't be promises whose resolution was blocking an end-user network request
- *   Those unresolved promise callbacks would just hang out on the job queue which will eventually get torn down.
- */
