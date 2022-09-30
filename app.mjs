@@ -5,7 +5,7 @@ const server = app.listen(3000);
 app.get("/", (req, res) => res.send("Hello World!"));
 
 const onExit = async () => {
-  server.close(() => processexit());
+  server.close(() => process.exit());
   setTimeout(() => {
     console.log("terminated after 1sec");
     process.exit(1);
